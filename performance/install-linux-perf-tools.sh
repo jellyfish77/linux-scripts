@@ -12,6 +12,9 @@ sudo apt install nicstat -y
 sudo apt install tiptop -y
 sudo apt install htop -y
 
+# Clean up unrequired packages
+sudo apt autoremove
+
 # doesn't work:
 #sudo apt install linux-tools-common 
 #sudo apt install linux-tools-4.15.0-34-generic
