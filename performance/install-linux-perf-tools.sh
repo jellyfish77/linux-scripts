@@ -11,6 +11,10 @@ sudo apt install net-tools -y
 sudo apt install nicstat -y
 sudo apt install tiptop -y
 sudo apt install htop -y
+sudo apt install atop -y
+
+# Clean up unrequired packages
+sudo apt autoremove -y
 
 # doesn't work:
 #sudo apt install linux-tools-common 
