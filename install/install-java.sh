@@ -1,4 +1,8 @@
 #!/bin/bash
+#cd /opt/
+#sudo mkdir java
+#sudo tar -zxvf ~/Downloads/jdk-8u192-linux-x64.tar.gz
+#sudo ln -s  jdk1.8.0_192 current
 for file in /opt/java/current/bin/*
 do
    if [ -x $file ]
