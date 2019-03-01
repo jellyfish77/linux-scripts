@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 #OQ - start/stop iib
+
 #set -x  #log commands
 
 # usage:
@@ -54,8 +55,9 @@ else
     export PATH=$PATH:$LIB_DIR
 fi
 
+
 export ODBCINI="$ODBC_VAR_DIR/odbc.ini"
-export ODBCSYSINI="$ODBC_VAR_DIR
+export ODBCSYSINI="$ODBC_VAR_DIR"
 
 # Source the mqsiprofile to set up env variables to run IIB mqsi* commands
 . mqsiprofile
