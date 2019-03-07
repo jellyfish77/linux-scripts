@@ -1,13 +1,13 @@
 #!/usr/bin/env sh
 #OQ - start/stop iib
 
-#set -x  #log commands
+set -x  #log commands
 
 # usage:
 #
 #   . iib.sh
 #
-# (source to re-use env variables)
+# (don't forget to source to set up env of shell)
 #
 # Note that IIB contains it's own JDK
 
@@ -64,4 +64,4 @@ export ODBCSYSINI="$ODBC_VAR_DIR"
 
 eval "$IIB_DIR/iib toolkit"
 
-#set +x
+set +x
