@@ -64,4 +64,4 @@ export ODBCSYSINI="$ODBC_VAR_DIR"
 
 eval "$IIB_DIR/iib toolkit"
 
-set +x
+set +x #disable command logging
