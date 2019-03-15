@@ -15,8 +15,8 @@ INST_DIR="/opt"
 IIB_DIR="$INST_DIR/iib-10.0.0.7"
 BIN_DIR="$IIB_DIR/server/bin"
 LIB_DIR="$IIB_DIR/server/lib"
-ODBC_LIB_DIR="$INST_DIR/lib/odbc"
-ODBC_VAR_DIR="/var/mqsi/odbc"
+#ODBC_LIB_DIR="$INST_DIR/lib/odbc"
+ODBC_VAR_DIR="/opt/iib-10.0.0.7/ie02/etc"
 
 # Returns 0 if the specified string contains the specified substring,
 # otherwise returns 1.
