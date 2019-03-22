@@ -8,9 +8,14 @@
 
 VERB_ARG=$1
 
-JAVA_DIR="/opt/jdk1.8.0_171"
+#set these:
+INSTALL_DIR='opt'
+JAVA_DIR='java/current'
+ACTIVEMQ_DIR='apache-activemq-5.15.8'
+
+JAVA_DIR="/$INSTALL_DIR/$JAVA_DIR"
 JRE_DIR="$JAVA_DIR/jre/bin"
-ACTIVEMQ_DIR="/opt/apache-activemq-5.15.8"
+ACTIVEMQ_DIR="/$INSTALL_DIR/$ACTIVEMQ_DIR"
 
 # Returns 0 if the specified string contains the specified substring,
 # otherwise returns 1.
