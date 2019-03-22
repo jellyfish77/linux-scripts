@@ -15,7 +15,7 @@ ACTIVEMQ_DIR='apache-activemq-5.15.8'
 
 JAVA_DIR="/$INSTALL_DIR/$JAVA_DIR"
 JRE_DIR="$JAVA_DIR/jre/bin"
-ACTIVEMQ_DIR="/$INSTALL_DIR/$ACTIVEMQ_DIR"
+ACTIVEMQ_DIR="/$INSTALL_DIR/$ACTIVEMQ_DIR/bin"
 
 # Returns 0 if the specified string contains the specified substring,
 # otherwise returns 1.
@@ -30,12 +30,20 @@ contains() {
     fi
 }
 
+if contains "$PATH" "$ACTIVEMQ_DIR"
+then
+    echo "$ACTIVEMQ_DIR already in PATH"
+else
+    echo "Adding $ACTIVEMQ_DIR to PATH..."
+    export PATH=$ACTIVEMQ_DIR:$PATH
+fi
+
 if contains "$PATH" "$JRE_DIR"
 then
     echo "$JRE_DIR already in PATH"
 else
     echo "Adding $JRE_DIR to PATH..."
-    export PATH=$PATH:$JRE_DIR
+    export PATH=$JRE_DIR:$PATH
 fi
   
 if contains "$JAVA_HOME" "$JAVA_DIR"
@@ -46,9 +54,10 @@ else
     export JAVA_HOME=$JAVA_DIR
 fi  
   
+    
 case $VERB_ARG in
-    "start") sudo /opt/apache-activemq-5.15.8/bin/activemq start;;
-    "stop") sudo /opt/apache-activemq-5.15.8/bin/activemq stop;;
+    "start") sudo $ACTIVEMQ_DIR/activemq start;;
+    "stop") sudo $ACTIVEMQ_DIR/activemq stop;;
 esac
 
 #set +x
