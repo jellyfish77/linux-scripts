@@ -22,5 +22,28 @@
 # -k: stay listening (keep connection open after completion of each connection)
 #
 # { } used to group the output from multiple commands
+#
+# HTTP headers
+# HTTP headers are terminated by the sequence \r\n\r\n (a blank line).
+#
+#
+# To Test
+#
+
 #{ printf "HTTP/1.0 200 OK\r\n\r\n"; cat text; } | nc -l -p 8080
-{ printf "HTTP/1.0 200 OK\r\nContent-Length: $(wc -c < text)\r\n\r\n"; cat text; } | nc -l -k -p 8080
+#{ printf "HTTP/1.0 200 OK\r\nContent-Length: $(wc -c < text)\r\n\r\n"; cat text; } | nc -l -k -p 8080
+
+#{ printf "HTTP/1.0 200 OK\r\nContent-Length: $(wc -c < text)\r\n\r\n"; cat text; } | nc -l -k -p 8080 | cat > "$(date +"%FT%T").request.$(uuidgen)"
+
+#{ printf "HTTP/1.0 200 OK\r\nContent-Length: $(wc -c < text)\r\n\r\n"; cat text; } | nc -l -k -p 8080 >> http_traffic
+
+#while true; do { printf "HTTP/1.0 200 OK\r\nContent-Length: $(wc -c < text)\r\n\r\n"; cat text; } | nc -l -k -p 8080 | cat > "$(date +"%FT%T").request.$(uuidgen)" ; done
+
+
+
+
+while true;
+	#do request = "$({ printf "HTTP/1.0 200 OK\r\nContent-Length: $(wc -c < text)\r\n\r\n"; cat text; } | nc -l -p 8080)" > "request.$(uuidgen)" ; printf "received message\n"
+	#do request = "$({ printf "HTTP/1.0 200 OK\r\nContent-Length: $(wc -c < text)\r\n\r\n"; cat text; } | nc -l -p 8080)" ; echo "$request" > "request.$(uuidgen)" ; printf "received message at $(date +"%FT%T")\n"
+	do { printf "HTTP/1.0 200 OK\r\nContent-Length: $(wc -c < text)\r\n\r\n"; cat text; } | nc -l -p 8080 > "request.$(uuidgen)" ; printf "received message at $(date +"%FT%T")\n"
+done
